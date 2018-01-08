@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,21 +20,21 @@ import android.widget.TextView;
  */
 
 public class Setting_Main extends Activity {
-    private String[] setting1={"账号与安全"};
-    private String[] setting2={"换肤","音效设置","语言"};
-    private String[] setting3={"关于"};
     ListView mListview;//账号的LV
     ListView mListview1;//中间行的LV
     ListView mListview2;//关于的LV
-    Button mButton;//返回
+    ImageButton rreturn;//返回
+    private String[] setting1 = {"账号与安全"};
+    private String[] setting2 = {"换肤", "音效设置", "语言"};
+    private String[] setting3 = {"关于"};
     private int[] icons1={R.drawable.six_lock};
     private int[] icons2={R.drawable.six_skin,R.drawable.six_sound,R.drawable.six_language};
     private int[] icons3={R.drawable.six_about};
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_main);
-        mButton=(Button)findViewById(R.id.settingreturn);
-        mButton.setOnClickListener(new View.OnClickListener() {
+        rreturn = (ImageButton) findViewById(R.id.settingreturn);
+        rreturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

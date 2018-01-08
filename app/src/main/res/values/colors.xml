@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#088D7F</color>
     <color name="colorAccent">#F14545</color>
 
+    <color name="medicine_background">#00CED1</color>
+
     <color name="text_blue">#0E53A7</color>
     <color name="text_gray">#666666</color>
 

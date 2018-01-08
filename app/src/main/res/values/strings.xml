@@ -11,4 +11,5 @@
     <dimen name="activity_vertical_margin">10dp</dimen>
     <dimen name="progressBarWidth">17dp</dimen>
     <dimen name="backgroundProgressBarWidth">10dp</dimen>
+
 </resources>

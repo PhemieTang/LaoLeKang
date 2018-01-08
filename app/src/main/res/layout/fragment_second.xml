@@ -40,11 +40,11 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:background="#40E0D0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tab_title">
+        android:layout_below="@+id/tab_title"
+        android:background="@color/medicine_background">
 
         <TextView
             android:id="@+id/day"

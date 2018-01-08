@@ -52,7 +52,7 @@
         android:layout_below="@+id/tab_title"
         android:background="@color/hhome_blue"
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -60,10 +60,10 @@
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/locate"
+        android:layout_marginLeft="5dp"
         android:gravity="bottom"
         android:text="在"
-        android:textSize="25sp"
-        android:layout_marginLeft="5dp"/>
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/ed_city"
@@ -98,10 +98,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/locate"
+        android:background="@color/red"
         android:text="开始检索"
-        android:textSize="18sp"
         android:textColor="@color/white"
-        android:background="@color/red" />
+        android:textSize="18sp" />
 
     <!--地图控件要放在最开始，否则其他像信息栏类的控件会看不到-->
     <com.baidu.mapapi.map.MapView

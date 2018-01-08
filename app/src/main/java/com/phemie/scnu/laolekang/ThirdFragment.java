@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.phemie.scnu.laolekang.Health.HeartRate.HeartRateActivity;
 import com.phemie.scnu.laolekang.Health.Step.StepActivity;
@@ -18,20 +17,18 @@ import com.phemie.scnu.laolekang.Health.Step.StepActivity;
 
 public class ThirdFragment extends Fragment implements View.OnClickListener{
 
+    public static String color;
+    MainActivity mainActivity;
     //
     private ImageView home_medicine;
     private ImageView home_health;
     private ImageView home_heartbeat;
     private ImageView home_foot;
-    private ImageView home_call;
-
-    MainActivity  mainActivity;
 
     //
-
+    private ImageView home_call;
     private View view;
     private ImageButton imageButton;
-    public static String color;
     public ThirdFragment() {
         // Required empty public constructor
     }
@@ -48,7 +45,7 @@ public class ThirdFragment extends Fragment implements View.OnClickListener{
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"打开",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"打开",Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getActivity(),Setting_Main.class);
                 startActivity(intent);
             }

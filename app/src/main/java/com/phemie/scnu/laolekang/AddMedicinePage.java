@@ -1,9 +1,8 @@
 package com.phemie.scnu.laolekang;
 
 import android.content.Intent;
-import android.support.v4.app.ShareCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -41,6 +38,16 @@ public class AddMedicinePage extends AppCompatActivity {
     View frequencyView;
 
     View specialMedicineIllustrationView;
+    DateInfo curdate;
+    List<detialFrequency> detialFres;
+    ListView detailFrequency_Lv;
+    detialFrequencyPopupWindow detialPopupWindow;
+    DetailFreLVAdapter dAdapter;
+    MedicineTimesPopupWindow mtimePopupWindow;
+    EditText edit_name;
+    EditText edit_dosage;
+    Medicine medicine;
+    Boolean isEdit;
     private Spinner spinnerStartYear;
     private List<String> startYear_list;
     private ArrayAdapter<String> startYear_adapter;
@@ -55,22 +62,9 @@ public class AddMedicinePage extends AppCompatActivity {
     private ArrayAdapter<String> startDay_adapter;
     private Spinner spinnerEndDay;
     private ArrayAdapter<String> endDay_adapter;
+    //Intent backintent;
     private Spinner spinnerStartMonth;
     private Spinner spinnerEndMonth;
-    DateInfo curdate;
-    List<detialFrequency> detialFres;
-    ListView detailFrequency_Lv;
-    detialFrequencyPopupWindow detialPopupWindow;
-    DetailFreLVAdapter dAdapter;
-    MedicineTimesPopupWindow mtimePopupWindow;
-
-    EditText edit_name;
-    EditText edit_dosage;
-    //Intent backintent;
-
-    Medicine medicine;
-
-    Boolean isEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,7 +156,7 @@ public class AddMedicinePage extends AppCompatActivity {
             ((TextView)TitleView.findViewById(R.id.txt_top)).setText("用药事项");
             Bundle bundle = getIntent().getExtras();
             if (bundle != null) {
-                medicine = (Medicine)bundle.getParcelable("data");
+                medicine = bundle.getParcelable("data");
             }
 
             ((TextView)scaleView.findViewById(R.id.attribute_value)).setText(medicine.getmSpeci());
@@ -571,6 +565,13 @@ public class AddMedicinePage extends AppCompatActivity {
                 mtimePopupWindow= new MedicineTimesPopupWindow(AddMedicinePage.this);
                 mtimePopupWindow.setData(new MedicineTimesPopupWindow.TimeCallBack() {
                     @Override
+                    public int getSelecteditem() {
+                        String t = ((TextView) frequencyView.findViewById(R.id.attribute_value)).getText().toString().substring(2, 3);
+
+                        return Integer.parseInt(t);
+                    }
+
+                    @Override
                     public void setSelecteditem(int id) {
                         int time=id+1;
                         ((TextView)frequencyView.findViewById(R.id.attribute_value)).setText("每日"+time+"次");
@@ -586,13 +587,6 @@ public class AddMedicinePage extends AppCompatActivity {
                         detailFrequency_Lv.setAdapter(new DetailFreLVAdapter());
                         setListViewHeightBasedOnChildren(detailFrequency_Lv);
                         medicine.setmFrequency(""+time);
-                    }
-
-                    @Override
-                    public int getSelecteditem() {
-                        String t=((TextView)frequencyView.findViewById(R.id.attribute_value)).getText().toString().substring(2,3);
-
-                        return Integer.parseInt(t);
                     }
                 });
                 mtimePopupWindow.showAtLocation(AddMedicinePage.this.findViewById(R.id.addMedicineMainLayout), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
